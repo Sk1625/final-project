@@ -1,0 +1,13 @@
+.trn {
+    background-image: linear-gradient(rgba(76, 0, 138, 0.836)rgba(237, 217, 255, 0.164));
+    z-index: 99;
+}
+#navy{
+    background-color: rgb(0, 63, 134);
+}
+#offer{
+    align-items: center;
+    color: whitesmoke;
+    font-size:x-large;
+
+}

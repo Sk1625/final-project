@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+    <div class="container">
+        <div id="offer">All Proposals</div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a routerLink='/home' class="nav-link nav-center">Back</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav><br><br><br>
+
+<!-- list table  -->
+<h2 style="text-align: center;">All Proposals List</h2>
+<div class="container">
+    <table class="table table-bordered">
+        <thead class="table-primary">
+                <tr>
+                    <td>Prop Id</td>
+                    <td>Proposal</td>
+                    <td>amount</td>
+                    <td>proposal_date</td>
+                    <td>accepted_On</td>
+                    <td colspan="3">Action</td>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let proposal of proposals">
+                    <td>{{proposal.propId}}</td>
+                    <td>{{proposal.proposal}}</td>
+                    <td>{{proposal.amount | currency: "INR"}}</td>
+                    <td>{{proposal.proposalDate}}</td>
+                    <td>{{proposal.acceptedOn}}</td> 
+                    <td><button class="btn btn-primary" (click) = "viewProposal(proposal.propId)">View</button>
+                </tr>
+            </tbody>
+            <h4>{{message}}</h4>
+        </table>
+       

@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+    <div class="container">
+      <div id="prop">All Proposal</div>
+      </div>
+  </nav>
+  <div class="container">
+  <br><br><br><br>
+        <h2 style="text-align: center;"> All Proposals</h2>
+        <hr>
+    <table class="table table-bordered border-primary mt-4">
+      <thead class="table-info border-primary">
+        <tr>
+            <td>Prop Id</td>
+            <!-- <td>Prop Emp ID</td>
+            <td>Prop Req ID</td> -->
+            <td>Proposal</td>
+            <td>amount</td>
+            <td>proposal_date</td>
+            <td>isAccepted</td>
+            <td>accepted_On</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proposal of proposals">
+            <td>{{proposal.propId}}</td>
+            <!-- <td>{{proposal.emp.empId}}</td>
+            <td>{{proposal.requirement.reqId}}</td> -->
+            <td>{{proposal.proposal}}</td>
+            <td>{{proposal.amount | currency: "INR"}}</td>
+            <td>{{proposal.proposalDate}}</td>
+            <td>{{proposal.accepted}}</td>
+            <td>{{proposal.acceptedOn}}</td> 
+        </tr>
+      </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,118 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+    <div class="container">
+        <div id="requirement">Edit Requirement</div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a routerLink='/empreq' class="nav-link nav-center">Back</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<br>
+<br>
+<br>
+<br>
+<div class="container card col-md-5 p-5" id="cardy">
+    <form [formGroup]="reqEdit" (ngSubmit)="editRequirement()">
+        <h1 class="h3 mb-3 fw-normal">Edit Requirement</h1>
+        <hr>
+
+        <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="floatingreqid" name="reqId"
+                formControlName="reqId" readonly>
+            <label for="floatingreqid">Enter Requirement Id</label>
+          
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingreqFullfilledOn" name="FullfilledOn"
+                formControlName="fulfilledOn" required>
+            <label for="floatingreqFullfilledOn">Requirement Fullfilled On</label>
+            <div class="text-danger"
+                *ngIf="reqEdit.get('fulfilledOn').hasError('required') && reqEdit.get('fulfilledOn').touched">
+                empty invalid field</div>
+        </div>
+
+        <div class="form-floating mt-3" style="text-align: center; font-family: nunito;">
+            <label>Is Fullfilled</label>
+                <b><input type="radio" formControlName="fulfilled" name="fulfilled" value="true" style="margin-right: 13px;">Yes
+                <input type="radio" formControlName="fulfilled" name="fulfilled" value="false" style="margin: 13px;">No</b>
+            </div>
+            <div class="text-danger"
+            *ngIf="reqEdit.get('fulfilled').hasError('required') && reqEdit.get('fulfilled').touched">Select one </div>
+
+
+
+        <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="floatingresid" name="resId" 
+                formControlName="resId" readonly>
+            <label for="floatingresid">Enter Resource Id</label>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingreqTitle" name="title"
+                formControlName="title" required>
+            <label for="floatingreqTittle">Title</label>
+            <div class="text-danger"
+                *ngIf="reqEdit.get('title').hasError('required') && reqEdit.get('title').touched">Enter the
+                valid
+                Title</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingreqDes" name="description"
+                 formControlName="description" required>
+            <label for="floatingreqDes">Requirement Description</label>
+            <div class="text-danger"
+                *ngIf="reqEdit.get('description').hasError('required') && reqEdit.get('description').touched">
+                Enter the valid
+                Description</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingreqCat" name="category" 
+                formControlName="category" required>
+            <label for="floatingreqCat">Requirement Category</label>
+            <div class="text-danger"
+                *ngIf="reqEdit.get('category').hasError('required') && reqEdit.get('category').touched">Enter
+                the valid
+                Requirement Category</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingReqResDate" name="resDate" 
+                formControlName="resDate" required>
+            <label for="floatingReqResDate">Resource Date</label>
+            <div class="text-danger"
+                *ngIf="reqEdit.get('resDate').hasError('required') && reqEdit.get('resDate').touched">Enter the
+                valid
+                 Resource Date</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingreqResType" name="resType" 
+                formControlName="resType" required>
+            <label for="floatingreqResType">Resource Type</label>
+            <div class="text-danger"
+                *ngIf="reqEdit.get('resType').hasError('required') && reqEdit.get('resType').touched">Enter the
+                valid
+                Resource Type</div>
+        </div>
+
+
+        <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="floatingreqprice" name="price" 
+                formControlName="price" required>
+            <label for="floatingreqprice">Enter Price</label>
+            <div class="text-danger"
+                *ngIf="reqEdit.get('price').hasError('required') && reqEdit.get('price').touched">Enter the
+                valid
+                Price</div>
+        </div>
+        <button class="btn btn-lg btn-primary col-md-12 mt-3" type="submit" [disabled]="!reqEdit.valid">Edit Requirement</button>
+    </form>
+</div>

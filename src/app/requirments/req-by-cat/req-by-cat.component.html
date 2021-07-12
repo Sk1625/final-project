@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+    <div class="container">
+        <div id="offer">Requirement By Category and Resource Type</div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a routerLink='/allrequirements' class="nav-link nav-center">Back</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<div class="container">
+    <table class="table table-bordered border-primary mt-4">
+        <thead class="table-info border-primary">
+            <tr>
+                <td>Offer Id</td>
+                <td>resId</td>
+                <td>resType</td>
+                <td>resDate</td>
+                <td>is Available</td>
+                <td>availableUpto</td>
+                <td>category</td>
+                <td>description</td>
+                <td>price</td>
+                <td>title</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let req of requirements">
+                <td>{{req.reqId}}</td>
+                <td>{{req.resId}}</td>
+                <td>{{req.resType}}</td>
+                <td>{{req.resDate}}</td>
+                <td>{{req.fulfilled}}</td>
+                <td>{{req.fulfilledOn}}</td>
+                <td>{{req.category}}</td>
+                <td>{{req.description}}</td>
+                <td>{{req.price}}</td>
+                <td>{{req.title}}</td>
+            </tr>
+        </tbody>
+        <h4>{{message}}</h4>
+    </table>
+</div>

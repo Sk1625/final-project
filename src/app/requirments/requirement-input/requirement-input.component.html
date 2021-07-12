@@ -1,0 +1,117 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+    <div class="container">
+        <div id="requirement">Add Requirement"</div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a routerLink='/allrequirements' class="nav-link nav-center">Back</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container card col-md-5 p-5" id="cardy">
+    <form [formGroup]="reqRegister" (ngSubmit)="registerReq()">
+        <h1 class="h3 mb-3 fw-normal">Add Requirement</h1>
+        <hr>
+        <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="floatingreqid" name="reqId"
+                formControlName="reqId" required>
+            <label for="floatingreqid">Enter Requirement Id</label>
+            <div class="text-danger"
+            *ngIf="reqRegister.get('reqId').hasError('required') && reqRegister.get('reqId').touched">Enter the
+            valid
+            Requirement Id</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingreqFullfilledOn" name="FullfilledOn"
+                formControlName="fulfilledOn" required>
+            <label for="floatingreqFullfilledOn">Requirement Fullfilled On</label>
+            <div class="text-danger"
+                *ngIf="reqRegister.get('fulfilledOn').hasError('required') && reqRegister.get('fulfilledOn').touched">
+                empty invalid field</div>
+        </div>
+
+        <div class="form-floating mt-3" style="text-align: center; font-family: nunito;">
+            <label>Is Fullfilled</label>
+                <b><input type="radio" formControlName="fulfilled" name="fulfilled" value="true" style="margin-right: 13px;">Yes
+                <input type="radio" formControlName="fulfilled" name="fulfilled" value="false" style="margin: 13px;">No</b>
+            </div>
+            <div class="text-danger"
+            *ngIf="reqRegister.get('fulfilled').hasError('required') && reqRegister.get('fulfilled').touched">Select one </div>
+
+
+
+        <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="floatingresid" name="resId" 
+                formControlName="resId" required>
+            <label for="floatingresid">Enter Resource Id</label>
+            <div class="text-danger"
+                *ngIf="reqRegister.get('resId').hasError('required') && reqRegister.get('resId').touched">Do not leave this Field Empty</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingreqTitle" name="title"
+                formControlName="title" required>
+            <label for="floatingreqTittle">Title</label>
+            <div class="text-danger"
+                *ngIf="reqRegister.get('title').hasError('required') && reqRegister.get('title').touched">Enter the
+                valid
+                Title</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingreqDes" name="description"
+                 formControlName="description" required>
+            <label for="floatingreqDes">Requirement Description</label>
+            <div class="text-danger"
+                *ngIf="reqRegister.get('description').hasError('required') && reqRegister.get('description').touched">
+                Enter the valid
+                Description</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingreqCat" name="category" 
+                formControlName="category" required>
+            <label for="floatingreqCat">Requirement Category</label>
+            <div class="text-danger"
+                *ngIf="reqRegister.get('category').hasError('required') && reqRegister.get('category').touched">Enter
+                the valid
+                Requirement Category</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingReqResDate" name="resDate" 
+                formControlName="resDate" required>
+            <label for="floatingReqResDate">Resource Date</label>
+            <div class="text-danger"
+                *ngIf="reqRegister.get('resDate').hasError('required') && reqRegister.get('resDate').touched">Enter the
+                valid
+                 Resource Date</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingreqResType" name="resType" 
+                formControlName="resType" required>
+            <label for="floatingreqResType">Resource Type</label>
+            <div class="text-danger"
+                *ngIf="reqRegister.get('resType').hasError('required') && reqRegister.get('resType').touched">Enter the
+                valid
+                Resource Type</div>
+        </div>
+
+
+        <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="floatingreqprice" name="price" 
+                formControlName="price" required>
+            <label for="floatingreqprice">Enter Price</label>
+            <div class="text-danger"
+                *ngIf="reqRegister.get('price').hasError('required') && reqRegister.get('price').touched">Enter the
+                valid
+                Price</div>
+        </div>
+        <small class="text-danger mt-2">{{message}}</small>
+        <button class="btn btn-lg btn-primary col-md-12 mt-3" type="submit" [disabled]="!reqRegister.valid">Add Requirement</button>
+    </form>
+</div>

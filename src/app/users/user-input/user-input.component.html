@@ -1,0 +1,108 @@
+
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+  <form [formGroup]="registration" (ngSubmit)="addUser()">
+    <div class="card card0 border-0">
+      <div class="row d-flex">
+        <div class="col-lg-6">
+          <div class="card1 pb-5">
+            <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src=".\assets\img\register.jpg"
+                class="image"> </div>
+
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card2 card border-0 px-4 py-5">
+            <div class="row mb-4 px-3">
+
+              <h4 class="mb-3 mr-4 mt-2" align="center">Welcome to MarketPlace</h4>
+              <h6 class="mb-3 mr-4 mt-2" align="center" class="text-muted"><i>Please Register Here</i></h6>
+
+              <small class="text-danger">{{message}}</small>
+            </div>
+            <div class="row px-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="height: 38px;">
+                    <i class="fa fa-envelope text-muted"></i>
+                  </span>
+                </div>
+                <input type="email" class="form-control" id="floatingEmail" name="emailIdField"
+                  placeholder="example@gmail.com" formControlName="emailId" email>
+                  <div class="container">
+                <div class="text-danger"
+                  *ngIf="registration.get('emailId').hasError('required') && registration.get('emailId').touched">Enter
+                  the
+                  valid
+                  Email Id
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <!-- ----------------------------------------------------------------------------------------- -->
+            <div class="row px-3 mt-4">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="height: 38px;">
+                    <i class="fa fa-user-circle text-muted"></i>
+                  </span>
+                </div>
+
+                <input type="text" class="form-control" id="floatingId" name="userIdField" placeholder="Enter UserId : Example 12345"
+                  formControlName="userId" required>
+
+                <div class="text-danger"
+                  *ngIf="registration.get('userId').hasError('required') && registration.get('userId').touched">Enter
+                  the valid
+                  User Id</div>
+
+                  <div class="container">
+                <div class="text-danger"
+                  *ngIf="registration.get('userId').hasError('maxlength') && registration.get('userId').touched">Only 6
+                  digits
+                  required
+                </div>
+              </div>
+              </div>
+            </div>&nbsp;
+
+            <!-- -------------------------------------------------------------------------------------- -->
+            <div class="row px-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="height: 38px;">
+                    <i class="fa fa-lock text-muted"></i>
+                  </span>
+                </div>
+                <input type="password" class="form-control" id="floatingPassword" name="passwordField"
+                  placeholder="Password" formControlName="password" required>
+                <div class="text-danger"
+                  *ngIf="registration.get('password').hasError('required') && registration.get('password').touched">
+                  Enter the
+                  valid password</div>
+                  <div class="container">
+                <div class="text-danger"
+                  *ngIf="registration.get('password').hasError('maxlength') && registration.get('password').touched">
+                  Only 10
+                  digits required
+                </div>
+              </div>
+              </div>
+            </div>&nbsp;
+            <div class="row mb-3 px-3" align="center"> <button type="submit" class="btn btn-lg text-center regBtn"
+                [disabled]="!registration.valid">Register</button>
+            </div>
+          </div>
+        </div>
+        <div class="footer py-4">
+          <div class="row px-3">
+            <small class="ml-4 ml-sm-5 mb-2"
+              >Copyright &copy; 2021. All rights reserved.</small
+            >
+          </div>
+          </div>
+        
+      </div>
+    </div>
+  </form>
+</div>

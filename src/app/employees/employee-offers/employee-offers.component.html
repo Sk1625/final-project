@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+    <div class="container">
+        <div id="offer">My Offers</div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a routerLink='/home' class="nav-link nav-center">Back</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br><br>
+
+<h2 style="text-align: center;">All Offers List</h2>
+<div class="container">
+    <table class="table table-stripped table-primary">
+        <thead>
+            <tr>
+                <td>Offer Id</td>
+                <td>is Available</td>
+                <td>availableUpto</td>
+                <td>category</td>
+                <td>description</td>
+                <td>price</td>
+                <td>title</td>
+                <td>resId</td>
+                <td>resDate</td>
+                <td>resType</td>
+                <td colspan="2" style="text-align: center;">Action</td>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor="let offer of offers">
+                <td>{{offer.offerId}}</td>
+                <td>{{offer.available}}</td>
+                <td>{{offer.availableUpto}}</td>
+                <td>{{offer.category}}</td>
+                <td>{{offer.description}}</td>
+                <td>{{offer.price | currency: "INR"}}</td>
+                <td>{{offer.title}}</td>
+                <td>{{offer.resId}}</td>
+                <td>{{offer.resDate}}</td>
+                <td>{{offer.resType}}</td>
+                <td><button class="btn btn-primary" (click)="editOffer(offer.offerId)" data-toggle="tooltip" data-placement="right"title="Edit"><i class="fa fa-edit"></i></button></td>
+                <td><button class="btn btn-danger" (click) ="delOffer(offer.offerId)" data-toggle="tooltip" data-placement="right"title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+            </tr>
+        </tbody>
+        <h4>{{message}}</h4>
+    </table>
+</div>

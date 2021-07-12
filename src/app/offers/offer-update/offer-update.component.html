@@ -1,0 +1,118 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+    <div class="container">
+        <div id="offer">Edit Offer</div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a routerLink='/empoffer' class="nav-link nav-center">Back</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<br>
+<br>
+<br>
+<br>
+<div class="container card col-md-5 p-5" id="cardy">
+    <form [formGroup]="offerEdit" (ngSubmit)="editOffer()">
+        <h1 class="h3 mb-3 fw-normal">Edit Offer</h1>
+        <hr>
+
+        <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="floatingoffid" name="offId" 
+            formControlName="offerId" readonly>
+            <label for="floatingoffid">Enter Offer Id</label>
+        </div>
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingoffavailableupto" name="availableUpto" placeholder="DD/MM/YYYY"
+                formControlName="availableUpto" required>
+            <label for="floatingoffavailableupto">Offer Available Upto</label>
+            <div class="text-danger"
+                *ngIf="offerEdit.get('availableUpto').hasError('required') && offerEdit.get('availableUpto').touched">
+                Enter the valid
+                Available Upto</div>
+        </div>
+
+        <div class="form-floating mt-3" style="text-align: center; font-family: nunito;">
+            <label>Is Available</label>
+                <b><input type="radio" formControlName="available" name="isAvailable" value="true" style="margin-right: 13px;">Yes
+                <input type="radio" formControlName="available" name="isAvailable" value="false" style="margin: 13px;">No</b>
+                <div class="text-danger"
+                *ngIf="offerEdit.get('available').hasError('required') && offerEdit .get('available').touched">Select one </div>
+        </div>
+    
+        <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="floatingresid" name="resId" 
+                formControlName="resId" readonly>
+            <label for="floatingresid">Enter Resource Id</label>
+            <div class="text-danger"
+                *ngIf="offerEdit.get('resId').hasError('required') && offerEdit.get('resId').touched">Do not leave this Field Empty</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingoffTitle" name="title" placeholder="SmartPhone"
+                formControlName="title" required>
+            <label for="floatingoffTitle">Title</label>
+            <div class="text-danger"
+                *ngIf="offerEdit.get('title').hasError('required') && offerEdit.get('title').touched">Enter the
+                valid
+                Title</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingoffDes" name="description" placeholder="Printer"
+                 formControlName="description" required>
+            <label for="floatingoffDes">Offer Description</label>
+            <div class="text-danger"
+                *ngIf="offerEdit.get('description').hasError('required') && offerEdit.get('description').touched">
+                Enter the valid
+                Description</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingoffCat" name="category" placeholder="Product"
+                formControlName="category" required>
+            <label for="floatingoffCat">Offer Category</label>
+            <div class="text-danger"
+                *ngIf="offerEdit.get('category').hasError('required') && offerEdit.get('category').touched">Enter
+                the valid
+                Offer Category</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingoffResDate" name="resDate" placeholder="DD/MM/YYYY"
+                formControlName="resDate" required>
+            <label for="floatingoffResDate">Resource Date</label>
+            <div class="text-danger"
+                *ngIf="offerEdit.get('resDate').hasError('required') && offerEdit.get('resDate').touched">Enter the
+                valid
+                Resource Date</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingoffResType" name="resType" placeholder="Buy"
+                formControlName="resType" required>
+            <label for="floatingoffResType">Resource Type</label>
+            <div class="text-danger"
+                *ngIf="offerEdit.get('resType').hasError('required') && offerEdit.get('resType').touched">Enter the
+                valid
+                Resource Type</div>
+        </div>
+
+
+        <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="floatingoffprice" name="price" placeholder="5000"
+                formControlName="price" required>
+            <label for="floatingoffprice">Enter Price</label>
+            <div class="text-danger"
+                *ngIf="offerEdit.get('price').hasError('required') && offerEdit.get('price').touched">Enter the
+                valid
+                Price</div>
+        </div>
+        
+        <button class="btn btn-lg btn-primary col-md-12 mt-3" type="submit" [disabled] = "!offerEdit.valid">Edit Offer</button>
+    </form>
+</div>

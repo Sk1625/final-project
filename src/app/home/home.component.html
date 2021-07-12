@@ -1,0 +1,144 @@
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+    <div class="container">
+        <a href="#" class="navbar-brand">Inhouse MarketPlace</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a routerLink='/empreq' class="nav-link">My Requirements</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink='/empoffer' class="nav-link">My Offers</a>
+            </li>
+            <li class="nav-item">
+                    <a routerLink='/empprop' class="nav-link">My Proposals</a>
+                  </li>
+                <li class="nav-item">
+                  <a routerLink='/empdetails' class="nav-link">My Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link mr-4">{{empId}}</a>
+                </li>
+              
+              </ul>
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit" routerLink="/login">Logout</button>
+            
+          </div>
+        </div>
+      </nav>
+<!-- Navigation Bar -->
+
+  <!-- carousal  -->
+  <div id="carouselExampleIndicators" class="carousel slide carousal-fade" data-bs-ride="carousel" >
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://source.unsplash.com/fJXv46LT7Xk/1600x900" class="d-block"  id="vignite" alt="...">
+        <div class="container" >
+          <div class="carousel-caption text-center" >
+            <h1 style="text-shadow: 2px 4px 9px black;">Buy Or Sell Products</h1>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://source.unsplash.com/KSwd2lb3lfs/1600x900" class="d-block" id="vignite" alt="...">
+        <div class="container" >
+          <div class="carousel-caption text-sm-center" >
+            <h2 style="text-shadow: 2px 4px 6px black;">Rent Items</h2>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://source.unsplash.com/QckxruozjRg/1600x900" class="d-block"  id="vignite" alt="...">
+        <div class="container" >
+          <div class="carousel-caption text-center" >
+            <h2  style="text-shadow: 2px 4px 6px black;">Offer or get services</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+    <!-- ------------- Categories -->
+    <section id="mainsection" class="mainsection">
+      <div class="container">
+        <div class="section-title">
+          <h2 align="center" style="margin: 21px;">Categories</h2>
+          <hr style="color: darkblue;">
+        </div><br>
+        <div class="row">
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box">
+              <h4>Service</h4>
+              <p>Offer or Get Services from Other Employees to work faster</p><br>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box">
+              <h4>Product</h4>
+              <p>Buy or Sell products to other Employees inside the Organization</p><br>
+              </div>
+            </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box">
+              <h4>Help</h4>
+              <p> Ask for Help in your work from requirements section or help other Employees</p><br>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section><br><br><br>
+
+
+  
+    <!-- section offer and requirement -->
+    
+  <section id="mainsection" class="mainsection">
+    <div class="container">
+      <div class="section-title">
+        <h2 align="center" style="margin: 21px;">Check Out some Offers and Requirements posted by Other Employees</h2>
+        <hr style="color: darkblue;">
+      </div><br>
+      <div class="row">
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <div class="box">
+            <h4>Offer Section</h4>
+            <p>Check Offers Posted by other Employees,Add an offer or send proposal to Employee to grab the deal</p><br>
+            <button class="my-3" class="btn btn-primary" routerLink = "/alloffers" >All Offers</button>
+          </div>
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <div class="box">
+            <h4> Requirement Section</h4>
+            <p> Check Requirements of others if you could help them contact the Employee through sending your proposal</p><br>
+            <button class="my-3" class="btn btn-primary" routerLink = "/allrequirements" >All Requirements</button>          </div>
+          </div>
+        </div>
+    </div>
+  </section>
+  <!-- ----------------------------------- -->
+
+  
+  <footer class="w-100" style="background-color: rgb(0, 63, 134); color: white;">
+    <div class=" container-primary text-center mt-4" style="padding:32px">
+        &copy; Copyright . All Rights Reserved
+      </div>
+  </footer>
+  </body>

@@ -1,0 +1,135 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+  <div class="container">
+    <div id="req">All Requirement</div>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a routerLink="/home" class="nav-link nav-center">Back</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<br/>
+<br/>
+<br/>
+<div class="row">
+  <button
+    class="btn btn-outline-primary btn-lg mt-2"
+    type="submit"
+    routerLink="/reqin"
+  >
+    <i class="fa fa-plus-circle" style="margin-right: 19px"></i>Add requirement
+  </button>
+</div>
+
+<div class="container">
+      <div class="container">
+        <form [formGroup]="reqByCat" (ngSubmit)="reqCatSort()">
+          <small class="text-danger">{{ message }}</small>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-floating mt-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingreqcat"
+                  name="reqcat"
+                  formControlName="reqcat"
+                />
+                <label for="floatingreqcat"
+                  >Enter the Requirement Category</label
+                >
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mt-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingreqres"
+                  name="reqres"
+                  formControlName="reqres"
+                />
+                <label for="floatingreqres"
+                  >Enter the Requirement source Type</label
+                >
+              </div>
+            </div>
+            <button
+              class="btn btn-lg btn-primary mt-3 w-100"
+              type="submit"
+            >
+              Requirement By Category and Resource Type
+            </button>
+          </div>
+        </form>
+      </div>
+
+  <hr/>
+  <div class="row">
+    <div class="col-10">
+    <h2 style="text-align: center">All Requirements List</h2>
+  </div>
+  <div class="col-2">
+    <button class="btn btn-md btn-primary" routerLink="/allprop">All Proposals</button>
+  </div>
+</div>
+  <hr/>
+
+  <table class="table table-bordered border-primary mt-4">
+    <thead class="table-info border-primary">
+      <tr>
+        <td>Req Id</td>
+        <td>Emp Name</td>
+        <td>isFullfiled</td>
+        <td>Res Id</td>
+        <td>Res Type</td>
+        <td>Category</td>
+        <td>Description</td>
+        <td>Price</td>
+        <td>Title</td>
+        <td colspan="2" style="text-align: center;">Action</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let req of requirements">
+        <td>{{req.reqId}}</td>
+        <td>{{req.emp.empName}}</td>
+        <td>{{req.fulfilled}}</td>
+        <td>{{req.resId}}</td>
+        <td>{{req.resType}}</td>
+        <td>{{req.category}}</td>
+        <td>{{req.description}}</td>
+        <td>{{req.price | currency :"INR"}}</td>
+        <td>{{req.title}}</td>
+        <td>
+          <button
+            class="btn btn-primary"
+            (click)="viewReq(req.reqId)"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="View"
+          >
+            <span
+              ><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;
+            </span>
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-success"
+            (click) = "addProposal(req.reqId)"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Add Proposal"
+          >
+            <span
+              ><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;
+            </span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,125 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+  <div class="container">
+    <div id="offer">All Offers</div>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a routerLink="/home" class="nav-link nav-center">Back</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-outline-primary btn-lg w-100" routerLink = "/offerinput" ><i class="fa fa-plus-circle" style="margin-right: 19px"></i>Add Offer</button>
+<div class="container">
+  <div class="container">
+    <form [formGroup]="offerByCat" (ngSubmit)="offCat()">
+      <small class="text-danger">{{ message }}</small>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-floating mt-3">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingoffcat"
+              name="offercat"
+              formControlName="offercat"
+            />
+            <label for="floatingroffcat"
+              >Enter the Offer Category</label
+            >
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-floating mt-3">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingoffres"
+              name="offerres"
+              formControlName="offerres"
+            />
+            <label for="floatingoffres"
+              >Enter the Offer Resource Type</label
+            >
+          </div>
+        </div>
+        <button
+          class="btn btn-lg btn-primary mt-3 w-100"
+          type="submit"
+        >
+          Offer By Category and Resource Type
+        </button>
+      </div>
+    </form>
+  </div>
+  <br>
+  <hr>
+  <div class="row">
+    <div class="col-10">
+    <h2 style="text-align: center">All Offers List</h2>
+  </div>
+  <div class="col-2">
+    <button class="btn btn-md btn-primary" routerLink="/allprop">All Proposals</button>
+  </div>
+  </div>
+  <hr>
+  <table class="table table-bordered">
+  <thead class="table-primary">
+    <tr>
+      <td>Offer Id</td>
+      <td>Employee Name</td>
+      <td>Availablity</td>
+      <td>Res Type</td>
+      <td>Category</td>
+      <td>Description</td>
+      <td>Price</td>
+      <td>Title</td>
+      <td colspan="2" style="text-align: center;">Action</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let offer of offers">
+      <td>{{offer.offerId}}</td>
+      <td>{{offer.emp.empName}}</td>
+      <td>{{offer.available}}</td>
+      <td>{{offer.resType}}</td>
+      <td>{{offer.category}}</td>
+      <td>{{offer.description}}</td>
+      <td>{{offer.price | currency : "INR"}}</td>
+      <td>{{offer.title }}</td>
+      <td>
+        <button
+          class="btn btn-primary"
+          (click)="viewOffer(offer.offerId)"
+          data-toggle="tooltip"
+          data-placement="right"
+          title="View"
+        >
+          <span
+            ><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;
+          </span>
+        </button>
+      </td>
+      <td>
+        <button
+          class="btn btn-success"
+          (click) = "addProposal(offer.offerId)"
+          data-toggle="tooltip"
+          data-placement="right"
+          title="Add Proposal"
+        >
+          <span
+            ><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;
+          </span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+  <h4>{{ message }}</h4>
+</table>

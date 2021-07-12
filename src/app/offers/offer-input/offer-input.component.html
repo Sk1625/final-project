@@ -1,0 +1,124 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+    <div class="container">
+        <div id="offer">Add Offer</div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a routerLink='/alloffers' class="nav-link nav-center">Back</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+<div class="container card col-md-5 p-5" id="cardy">
+    <form [formGroup]="offerRegister" (ngSubmit)="registerOffer()">
+        <h1 class="h3 mb-3 fw-normal">Add Offer</h1>
+        <hr>
+        
+        <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="floatingoffid" name="offId" placeholder="123"
+            formControlName="offerId" required>
+            <label for="floatingoffid">Enter Offer Id</label>
+            <div class="text-danger"
+            *ngIf="offerRegister.get('offerId').hasError('required') && offerRegister.get('offerId').touched">Enter the
+                valid
+                Offer Id</div>
+            </div>
+
+            <div class="form-floating mt-3">
+                <input type="text" class="form-control" id="floatingoffavailableupto" name="availableUpto" placeholder="DD/MM/YYYY"
+                formControlName="availableUpto" required>
+                <label for="floatingoffavailableupto">Offer Available Upto</label>
+                <div class="text-danger"
+                *ngIf="offerRegister.get('availableUpto').hasError('required') && offerRegister.get('availableUpto').touched">
+                Enter the valid
+                Available Upto</div>
+            </div>
+            
+            <div class="form-floating mt-3" style="text-align: center; font-family: nunito;">
+                <label>Is Available</label>
+                <b><input type="radio" formControlName="available" name="isAvailable" value="true" style="margin-right: 13px;">Yes
+                    <input type="radio" formControlName="available" name="isAvailable" value="false" style="margin: 13px;">No</b>
+                    <div class="text-danger"
+                *ngIf="offerRegister.get('available').hasError('required') && offerRegister.get('available').touched">Select one </div>
+            </div>
+            
+            <div class="form-floating mt-3">
+            <input type="number" class="form-control" id="floatingresid" name="resId" placeholder="123"
+            formControlName="resId" required>
+            <label for="floatingresid">Enter Resource Id</label>
+            <div class="text-danger"
+            *ngIf="offerRegister.get('resId').hasError('required') && offerRegister.get('resId').touched">Do not leave this Field Empty</div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingoffTitle" name="title" placeholder="SmartPhone"
+                formControlName="title" required>
+                <label for="floatingoffTitle">Title</label>
+                <div class="text-danger"
+                *ngIf="offerRegister.get('title').hasError('required') && offerRegister.get('title').touched">Enter the
+                valid
+                Title</div>
+            </div>
+            
+            <div class="form-floating mt-3">
+                <input type="text" class="form-control" id="floatingoffDes" name="description" placeholder="Printer"
+                formControlName="description" required>
+                <label for="floatingoffDes">Offer Description</label>
+                <div class="text-danger"
+                *ngIf="offerRegister.get('description').hasError('required') && offerRegister.get('description').touched">
+                Enter the valid
+                Description</div>
+        </div>
+        
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingoffCat" name="category" placeholder="Product"
+                formControlName="category" required>
+                <label for="floatingoffCat">Offer Category</label>
+            <div class="text-danger"
+            *ngIf="offerRegister.get('category').hasError('required') && offerRegister.get('category').touched">Enter
+            the valid
+            Offer Category</div>
+        </div>
+        
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingoffResDate" name="resDate" placeholder="DD/MM/YYYY"
+            formControlName="resDate" required>
+            <label for="floatingoffResDate">Resource Date</label>
+            <div class="text-danger"
+            *ngIf="offerRegister.get('resDate').hasError('required') && offerRegister.get('resDate').touched">Enter the
+            valid
+            Resource Date</div>
+        </div>
+        
+        <div class="form-floating mt-3">
+            <input type="text" class="form-control" id="floatingoffResType" name="resType" placeholder="Buy"
+            formControlName="resType" required>
+            <label for="floatingoffResType">Resource Type</label>
+            <div class="text-danger"
+            *ngIf="offerRegister.get('resType').hasError('required') && offerRegister.get('resType').touched">Enter the
+            valid
+            Resource Type</div>
+        </div>
+        
+        
+        <div class="form-floating mt-3 mb-3">
+            <input type="number" class="form-control" id="floatingoffprice" name="price" placeholder="5000"
+            formControlName="price" required>
+            <label for="floatingoffprice">Enter Price</label>
+            <div class="text-danger"
+            *ngIf="offerRegister.get('price').hasError('required') && offerRegister.get('price').touched">Enter the
+            valid
+            Price</div>
+        </div>
+        
+        <small class="text-danger mt-2">{{message}}</small>
+        <button class="btn btn-lg btn-primary col-md-12 mt-3" type="submit" [disabled] = "!offerRegister.valid">Register
+            Offer</button>
+        </form>
+</div>

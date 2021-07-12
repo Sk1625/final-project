@@ -1,0 +1,103 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+  <div class="container">
+    <div id="prop">All Proposal</div>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a routerLink="/allrequirements" class="nav-link nav-center">Back</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav><br><br><br><br><br>
+
+
+<div class="container card col-md-5 p-5" id="cardy">
+    <form [formGroup]="sendProposal" (ngSubmit)="addProposal()">
+      <h1 class="h3 mb-5 text-center">Add Your Proposal</h1>
+      <small class="text-danger">{{message}}</small>
+  
+      <div class="form-floating mt-3">
+        <input type="text" class="form-control" id="floatingempId" name="employeeId" 
+          formControlName="empId" readonly>
+        <label for="floatingempId">Your Employee Id</label>
+      </div>
+  
+      <div class="form-floating mt-3">
+        <input type="text" class="form-control" id="floatingreqId" name="requirementId" 
+          formControlName="reqId" readonly>
+        <label for="floatingreqId">Your Requirement Id</label>
+      </div>
+  
+      <div class="form-floating mt-3">
+        <input type="text" class="form-control" id="floatingresId" name="resId" 
+          formControlName="resId" readonly>
+        <label for="floatingresId">Your Resource Id</label>
+      </div>
+  
+      <div class="form-floating mt-3">
+        <input type="text" class="form-control" id="floatingpropId" name="proposalId" formControlName="propId" placeholder="1234" required>
+        <label for="floatingpropId">Enter Your Proposal Id</label>
+        <div class="text-danger"
+          *ngIf="sendProposal.get('propId').hasError('required') && sendProposal.get('propId').touched">Enter Valid
+          Proposal Id
+        </div>
+      </div>
+    
+      <div class="form-floating mt-3">
+        <input type="text" class="form-control" id="floatingPropName" name="proposalName" placeholder="example"
+          formControlName="proposal" required>
+        <label for="floatingPropName">Enter Your Proposal </label>
+        <div class="text-danger"
+          *ngIf="sendProposal.get('proposal').hasError('required') && sendProposal.get('proposal').touched">Proposal Field
+          Cannot be Blank
+        </div>
+      </div>
+  
+      <div class="form-floating mt-3">
+        <input type="number" class="form-control" id="floatingPropAmount" name="proposalAmount" placeholder="example"
+          formControlName="amount" required>
+        <label for="floatingPropAmount">Enter Your Proposal amount</label>
+        <div class="text-danger"
+          *ngIf="sendProposal.get('amount').hasError('required') && sendProposal.get('amount').touched">Amount
+          Field cannot be blank
+        </div>
+      </div>
+      <div class="form-floating mt-3">
+        <input type="text" class="form-control" id="floatingPropDate" name="proposalDate" placeholder="yyyy-mm-dd"
+          formControlName="proposalDate" required>
+        <label for="floatingPropDate">Enter Your Proposal Date</label>
+        <div class="text-danger"
+          *ngIf="sendProposal.get('proposalDate').hasError('required') && sendProposal.get('proposalDate').touched">Date Field
+          cannot be blank
+        </div>
+      </div>
+      <div class="form-floating mt-3">
+        <input type="text" class="form-control" id="floatingAcceptedOn" name="acceptedOn" placeholder="yyyy-mm-dd"
+          formControlName="acceptedOn" required>
+        <label for="floatingAcceptedOn">Accepted On</label>
+        <div class="text-danger"
+          *ngIf="sendProposal.get('acceptedOn').hasError('required') && sendProposal.get('acceptedOn').touched">This Field
+          cannot be blank
+        </div>
+      </div>
+  
+      <div class="form-floating mt-3">
+  
+        <div><label class="m-2 fw-bold">isAccepted</label>
+          <input id="trueradio" type="radio" value="true" name="isaccepted" formControlName="accepted">
+          <label for="trueradio">True</label>
+        
+          <input id="falseradio" type="radio" value="false" name="isaccepted" formControlName="accepted">
+          <label for="falseradio">False</label>
+          
+        </div>
+        <div class="text-danger"
+          *ngIf="sendProposal.get('accepted').hasError('required') && sendProposal.get('accepted').touched">
+          Please select any one option
+        </div>
+      </div>
+      <button class="btn btn-lg btn-primary col-md-12 mt-3" type="submit" [disabled]="!sendProposal.valid">Send
+        Proposal</button>
+    </form>
+  </div>

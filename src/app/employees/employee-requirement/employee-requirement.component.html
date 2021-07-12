@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+    <div class="container">
+        <div id="req">My Requirements</div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a routerLink='/home' class="nav-link nav-center">Back</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br><br>
+<h2 style="text-align: center;">All Requirements List</h2>
+<div class="container">
+    <table class="table table-bordered table-info">
+        <thead class="table-warning text-left">
+            <tr>
+                <td>Requirement Id</td>
+                <td>isFulfilled</td>
+                <td>fulFilledOn</td>
+                <td>category</td>
+                <td>description</td>
+                <td>price</td>
+                <td>title</td>
+                <td>resId</td>
+                <td>resDate</td>
+                <td>resType</td>
+                <td colspan="2">Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reqs of requirements">
+                <td>{{reqs.reqId}}</td>
+                <td>{{reqs.fulfilled}}</td>
+                <td>{{reqs.fulfilledOn}}</td>
+                <td>{{reqs.category}}</td>
+                <td>{{reqs.description}}</td>
+                <td>{{reqs.price | currency :"INR"}}</td>
+                <td>{{reqs.title}}</td>
+                <td>{{reqs.resId}}</td>
+                <td>{{reqs.resDate}}</td>
+                <td>{{reqs.resType}}</td>
+                <td><button class="btn btn-primary" (click)="editRequirement(reqs.reqId)" data-toggle="tooltip" data-placement="right"title="Edit"><i class="fa fa-edit"></i></button></td>
+                <td><button class="btn btn-danger" (click) ="delRequirement(reqs.reqId)"data-toggle="tooltip" data-placement="right"title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+            </tr>
+        </tbody> 
+        <h4>{{message}}</h4>
+    </table>
+</div>

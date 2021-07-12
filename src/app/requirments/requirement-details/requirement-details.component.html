@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top trn" id="navy">
+    <div class="container">
+        <div id="req">Requirement By Id</div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a routerLink='/allrequirements' class="nav-link nav-center">Back</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+    <h2 class="text-center">View Requirement Details</h2>
+    <h4>{{message}}</h4>
+
+    <div class="col-md-8 p-4" style="margin: auto;">
+        <div class="card mb-3 border-success">
+          <div class="card-body p-14">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Req ID :</h6>
+              </div>
+              <div class="col-sm-9">
+                {{req.reqId}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Req isFullfiled:</h6>
+              </div>
+              <div class="col-sm-9">
+                {{req.fulfilled}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Req Category :</h6>
+              </div>
+              <div class="col-sm-9">
+                {{req.category}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Req Description :</h6>
+              </div>
+              <div class="col-sm-9">
+                {{req.description}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Req Price :</h6>
+              </div>
+              <div class="col-sm-9">
+                {{req.price}}
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Req title :</h6>
+              </div>
+              <div class="col-sm-9">
+                {{req.title}}
+              </div>
+            </div>
+            <hr>
+            
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Resource ID :</h6>
+              </div>
+              <div class="col-sm-9">
+                {{req.resId}}
+              </div>
+            </div>
+            <hr>
+            
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Employee ID :</h6>
+              </div>
+              <div class="col-sm-9">
+                {{req.emp.empId}}
+              </div>
+            </div>
+            <hr>
+            
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Employee Name :</h6>
+              </div>
+              <div class="col-sm-9">
+                {{req.emp.empName}}
+              </div>
+            </div>
+            <hr>
+            
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Employee Dept :</h6>
+              </div>
+              <div class="col-sm-9">
+                {{req.emp.deptName}}
+              </div>
+            </div>
+            <hr>
+            
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Employee Location :</h6>
+              </div>
+              <div class="col-sm-9">
+                {{req.emp.location}}
+              </div>
+            </div>
+            
+          </div>
+        </div>

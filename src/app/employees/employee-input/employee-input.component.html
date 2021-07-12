@@ -1,0 +1,127 @@
+  <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <form [formGroup]="empRegister" (ngSubmit)="registerEmp()">
+      <div class="card card0 border-0">
+        <div class="row d-flex">
+          <div class="col-lg-6">
+            <div class="card1 pb-5">
+              <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img id="image" src=".\assets\img\registerImg.jpg"
+                  class="image"> </div>
+            </div>
+          </div> 
+          <div class="col-lg-6">
+            <div class="card2 card border-0 px-4 py-5">
+              <div class="row mb-4 px-3">
+                <h4 class="mb-0 mr-4 mt-2" style="font-family: nunito sans; text-align: center;">Register Here
+                </h4>
+                <hr style="margin-top: 12px;">
+              </div>
+  
+  
+              <div class="row px-3 mb-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="height: 38px;">
+                      <i class="fa fa-user-check text-muted"></i>
+                    </span>
+                  </div>
+                  <input id="userId" type="text" name="userId" placeholder="User Id"
+                    class="form-control bg-white border-left-0 border-md" formControlName="userId" readonly>
+              </div>
+              </div>
+
+              <div class="row px-3 mb-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="height: 38px;">
+                      <i class="fa fa-user-circle text-muted"></i>
+                    </span>
+                  </div>
+  
+                  <input id="employeeId" type="text" name="employeeId" placeholder="Employee Id"
+                    class="form-control bg-white border-left-0 border-md" formControlName="empId" required>&nbsp;
+                    <div class="container">
+                  <div class="text-danger mt-2"
+                    *ngIf="empRegister.get('empId').hasError('required') && empRegister.get('empId').touched">Enter the
+                    valid Employee Id</div>
+                  <div class="text-danger"
+                    *ngIf="empRegister.get('empId').hasError('maxlength') && empRegister.get('empId').touched">Only 6
+                    digits Required </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+              <div class="row px-3 mb-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="height: 38px;">
+                      <i class="fa fa-user text-muted"></i>
+                    </span>
+                  </div>
+                  <input id="empName" type="text" name="employeeName" placeholder="Employee Name"
+                    class="form-control bg-white border-left-0 border-md" formControlName="empName" required>&nbsp;<br>
+                    <div class="container">
+                  <div class="text-danger"
+                    *ngIf="empRegister.get('empName').hasError('required') && empRegister.get('empName').touched">Enter the
+                    valid Employee Name</div>
+                </div>
+              </div>
+              </div>
+  
+  
+  
+              <div class="row px-3 mb-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="height: 38px;">
+                      <i class="fa fa-building text-muted"></i>
+                    </span>
+                  </div>
+                  <input id="deptName" type="text" name="departmentName" placeholder="Department Name"
+                  class="form-control bg-white border-left-0 border-md" formControlName="deptName" required>&nbsp;<br>
+                  <div class="container">
+                <div class="text-danger"
+                  *ngIf="empRegister.get('deptName').hasError('required') && empRegister.get('deptName').touched">Enter the
+                  valid Department</div>
+              </div>
+              </div>
+              </div>
+  
+              <div class="row px-3 mb-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="height: 38px;">
+                      <i class="fa fa-globe text-muted"></i>
+                    </span>
+                  </div>
+                  <input id="empLoc" type="text" name="empLocation" placeholder="Enter Your Work Location"
+                    class="form-control bg-white border-left-0 border-md" formControlName="location" required>
+
+                    <div class="conatiner">
+                  <div class="text-danger"
+                    *ngIf="empRegister.get('location').hasError('required') && empRegister.get('location').touched">Enter the valid Employee Location</div>
+                </div>
+              </div>
+              </div>
+  
+              <div class="btn text-center mt-3"  class="row mb-3 px-3" style="height: 38px;">
+                <button class="btn btn-block py-2" id="CreateBtn" [disabled]="! empRegister.valid">Create your account</button>
+              </div>
+  
+              <div class="text-center w-100">
+                <p class="text-muted font-weight-bold" style="font-family: nunito sans;"><b>Already Registered ? </b><a href="#"
+                    class="text-primary ml-2"><b>Login</b></a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="footer py-4">
+            <div class="row px-3">
+              <small class="ml-4 ml-sm-5 mb-2"
+                >Copyright &copy; 2021. All rights reserved.</small>
+            </div>
+            </div>
+        </div>
+      </div>
+    </form>
+    </div>
